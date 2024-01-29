@@ -1,0 +1,97 @@
+---
+title: "R-Ladies Blog Notes"
+author: "Jessica Dardignac"
+format:
+  html:
+    toc: true
+editor: source
+theme: quartz
+---
+
+## **What is R-Ladies?** 
+<button type="button" class="btn btn-success">Check Them Out!</button>
+
+R-Ladies is a worldwide organization whose mission is to promote gender diversity in the R community
+
+*    Due to under represented genders in this community they work to encourage and empower them all around the world
+
+## **R-Ladies Global**
+R-Ladies Global is run by volunteer groups with specific responsibility with the organization 
+
+*    There are a lot of women that each have their own duties for out reach and development of sponsorship and mentor to help others develop their own R-communities around the globe
+
+## **R-Ladies Cotonous Journey**
+
+**It all started with a want for a new chapter**
+   
+   A new outreach chapter was wanting to be developed in Cotonou located in Benin (West Africa)
+
+*    The main problem they had was developing a team to help kick off the chapter
+    
+With this idea *Nadeja Sero* started working in September 2017 on getting this chapter going
+
+*    She used twitter and e-mail a lot on finding ways to start getting things developed
+
+**Difficulties :(**
+
+Finding people willing to work with her to get things going was hard (finding co-organizers) but she found women that were excited to help her out
+
+Next she needed to recruite member, however due to situations happening in her country, out reach became hard
+
+*    Internet access became a problem
+     + Taxes were put and were expensive; this stopped the chapter development
+
+As time went on (about a year and a half later 2019), *Claudia Vitolo* a co-founder of R-Ladies Global reached out as asked how things were going
+
+*    After hearing the level of development she recommended that Nadeja Sero get a mentor who ended up being  *Florencia D'Andrea* who is an organizer for R- Ladies Buenos Aires
+    
+**A Happy Ending!**
+
+With more confidence and guidance from her mentor, Nadeja worked with her co-organizers and set up a clear plan for actions they needed to take
+
+*    They made flyers
+*    List of criteria of admission
+*    Meetup time and places
+*    Google form to get basic info from new members
+
+Their first meet up happened July 2019. A lot of the members were excited and ready to go on this R-Ladies Journey
+
+*    Different people volunteered for task that needed to be taken care of and soon enough a solid membership team was established
+
+During the time between the first and second meetup things got a little shaky due to speakers backing down and giving up on presenting
+
+*    Nadeja worked on helping speaker become more confident in presenting and helped people develop good informative slides
+    
+The second meet up went well and one speaker *Sheriftah Mama Chabi* talked about gender equality and the challenges encountered by women scientist
+
+Overall today R-Ladies in Cotonou is in good health and is running swell!
+
+
+
+
+
+
+
+
+
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
