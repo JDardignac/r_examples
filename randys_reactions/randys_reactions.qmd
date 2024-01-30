@@ -1,0 +1,15 @@
+---
+title: "Randy's Reactions"
+format: html
+editor: source
+---
+
+## Jan 28th homework
+
+NICE!  I loved reading your notes on R-Ladies!  Thanks! Nice chart too!  Some notes:
+
+* Are you going to join r-ladies?!?
+* Nice use of the quartz theme!  And you used some formatting (e.g., italics).  
+* With your chart, make sure to insert the URL so you or others can find it later
+* The comments are excellent.  If you wrote them-nice, if they came with the code, look them over as an example.
+* Good work with parameterizing the code chunks.  
