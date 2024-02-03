@@ -12,6 +12,7 @@ theme: cyborg
 ```{r Linegraph, echo=FALSE, warning=FALSE}
 # Create data
 ## Changed date range to this month
+## Changed theme of html
 ## Change number of values plotted
 set.seed(124)
 date <- paste(   "2024/01/" , sample(seq(1,31),15) , sep="")
