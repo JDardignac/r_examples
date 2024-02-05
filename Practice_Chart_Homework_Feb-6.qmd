@@ -6,6 +6,7 @@ mainfont: sans
 editor: source
 ---
 ## Doughnut chart on the precentage of time in my week goes to differnt things
+*   using ggplot2 doughnut chart from r-gallery https://r-graph-gallery.com/128-ring-or-donut-plot.html
 ```{r chart, echo=FALSE, warning=FALSE}
 # load library
 library(ggplot2)
