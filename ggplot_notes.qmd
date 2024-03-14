@@ -1,0 +1,65 @@
+---
+title: "ggPlot Notes"
+format: html
+editor: source
+---
+
+## ggPlot!! FUN FUN FUN
+https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/#data
+
+## Intro
+a good recource to use is Beautiful plotting in R: A ggplot2 cheatsheet by Zev Ross http://zevross.com/blog/2014/08/04/beautiful-plotting-in-r-a-ggplot2-cheatsheet-3/
+
+```{r}
+# install CRAN packages
+
+install.packages(
+  c("ggplot2", "tibble", "tidyr", "forcats", "purrr", "prismatic", "corrr", 
+    "cowplot", "ggforce", "ggrepel", "ggridges", "ggsci", "ggtext", "ggthemes", 
+    "grid", "gridExtra", "patchwork", "rcartocolor", "scico", "showtext", 
+    "shiny", "plotly", "highcharter", "echarts4r")
+)
+
+# install from GitHub since not on CRAN
+install.packages("devtools")
+devtools::install_github("JohnCoene/charter")
+```
+## The Dataset
+
+```{r}
+chic <- readr::read_csv("https://cedricscherer.com/data/chicago-nmmaps-custom.csv")
+
+tibble::glimpse(chic)
+head(chic, 10)
+```
+## The {ggplot2} Package
+
+**ggplot2 Overview:**
+
+*   ggplot2 is a graphics system for creating visuals based on The Grammar of Graphics.
+
+*   It allows for declarative creation of graphics.
+
+*   Users provide data and specify mappings, and ggplot2 handles the details.
+
+**Basic Elements of ggplot2:**
+
+**Data**: Raw data to be plotted.
+
+**Geometries (geom_)**: Shapes representing the data.
+
+**Aesthetics (aes())**: Control over appearance like color, size, and shape.
+
+**Scales (scale_)**: Mapping data to aesthetic dimensions.
+
+**Statistical transformations (stat_)**: Summaries of data like quantiles or fitted curves.
+
+**Coordinate system (coord_)**: Mapping data coordinates onto the plot.
+
+**Facets (facet_)**: Arranging data into grid plots.
+
+**Visual themes (theme())**: Setting visual defaults like background and typeface.
+
+## A Default ggplot
+
+

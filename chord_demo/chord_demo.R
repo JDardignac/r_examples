@@ -15,7 +15,18 @@ library(pacman)
 
 p_load(chorddiag, htmlwidgets, tidyverse)
 
+##install.packages("devtools")
 
+##devtools::install_github("mattflor/chorddiag", build_vignettes = TRUE)
+
+##library(chorddiag)
+
+library(chorddiag)
+library(htmlwidgets)
+library(igraph)
+library(readr)
+library(tidygraph)
+library(tidyverse)
 
 # read in and wrangle data ------
 # read in data

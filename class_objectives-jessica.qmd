@@ -29,10 +29,14 @@ Over the course it is expected you will:
 
 ## Personal objectives
 
-* Write everything in Quarto files
-* Find and work through tutorials about pharmaceutical data in R
-* Create workflowR website https://workflowr.github.io/workflowr/
+-   Write everything in Quarto files
+-   Find and work through tutorials about pharmaceutical data in R
+-   Create workflowR website https://workflowr.github.io/workflowr/
 
 ## Progress tracking
 
-* Met week of February 6, 2024 for initial conversation
+-   Met week of February 6, 2024 for initial conversation
+
+## Jessica's Class Reflection 3/14/24
+
+So far in this class I am pleasantly surprised at how much I have learned to do in R. I am currently less nervous whenever I open the software and more excited on solving the problems I come across (The Errors!! lol). There are small tricks I have learned from others in class as well as through my research and video tutorials. Since I am pretty new to R I do feel a little behind compared to other students in knowing what everything means and what packages can give them what they are looking for. I also don't have raw data to work with like other students so I am unable to create cool figures like they have been doing. Good news is I am joining Dr. Campos Lab and still waiting for her to send me data to play with so eventually I will get there. If I had to grade myself so far, due to not knowing as much as others I would give myself a B+. I am hoping in time when I have more data and can solve errors a lot better I will feel like more of an A. :)
