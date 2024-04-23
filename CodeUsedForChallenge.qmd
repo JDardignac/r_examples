@@ -1,0 +1,33 @@
+---
+title: "CodeFromRChallenge"
+format: html
+editor: visual
+---
+
+## Quarto
+
+read_csv
+
+```{r}
+bps_aoi_attributes <- read_csv("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/bps_aoi_attributes.csv")
+```
+
+merge(): 
+```{r}
+merge1 <- merge(ref_con_modified, bps_model_number_name, by = "Model_Code", all = TRUE)
+```
+> You add your files that you want to merge together then you say what you want them to merge by (what column)
+
+mergekeep
+```{r}
+merge1keep <- c("13040_32_43_44_49", "13670_32_44","15070_44")
+```
+> here in your new merged table you can specify exactly what you care about in it and keep that; these were the modle_code 
+
+mergefilter
+```{r}
+merg1filtered <- merge1 %>%
+  filter(Model_Code %in% merge1keep) %>%
+  select(-Water)
+```
+

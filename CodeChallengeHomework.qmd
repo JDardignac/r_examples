@@ -1,0 +1,200 @@
+---
+title: "CodeChallengeHomework"
+format: html
+editor: visual
+---
+
+## Homework challenge
+
+```{r}
+setwd("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data")
+getwd
+library(openxlsx)
+library(readxl)
+library(ggplot2)
+library(tidyverse)
+library(dplyr)
+bps_aoi_attributes <- read_csv("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/bps_aoi_attributes.csv") 
+#View(bps_aoi_attributes)
+bps_model_number_name <- read_csv("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/bps_model_number_name.csv")
+#bps_aoi_attributes[c()]
+#View(bps_model_number_name)
+combine_raw <- read_csv("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/combine_raw.csv")
+#View(combine_raw)
+LF16_BPS_200 <- read_csv("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/LF16_BPS_200.csv")
+#View(LF16_BPS_200)
+ref_con_modified <- read_csv("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/ref_con_modified.csv")
+#View(ref_con_modified)
+scls_aoi_attributes <- read_csv("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/scls_aoi_attributes.csv")
+#View(scls_aoi_attributes)
+#merge: this will show the past
+merge1 <- merge(ref_con_modified, bps_model_number_name, by = "Model_Code", all = TRUE)
+#what do i have to filter? 
+merge1keep <- c("13040_32_43_44_49", "13670_32_44","15070_44")
+#now lets start filtering
+merg1filtered <- merge1 %>%
+  filter(Model_Code %in% merge1keep) %>%
+  select(-Water)
+# Convert from wide to long format
+long_datamerg1 <- pivot_longer(
+  merg1filtered,
+  cols = A:UE,
+  names_to = "Category",
+  values_to = "PastPercent"
+)
+## Making the Graph
+# Define the order of categories from bottom to top as they should appear after coord_flip()
+ordered_categories <- c("Developed","Agriculture", "UE", "UN", "E", "D", "C", "B", "A")
+# Set the factor levels for Category
+long_datamerg1$Category <- factor(long_datamerg1$Category, levels = ordered_categories)
+# Now create the plot
+plot <- ggplot(long_datamerg1, aes(x = Category, y = PastPercent, fill = BpS_Name)) +
+  geom_bar(stat = "identity", position = position_dodge(), fill = "green") +
+  coord_flip() +  # Flip the coordinates to have the categories on the y-axis
+  facet_wrap(~ BpS_Name, scales = "free_x") +
+  labs(
+    title = "Succession Classes past",
+    x = "Category",
+    y = "Past Percent"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    strip.text.x = element_text(size = 10),
+    panel.border = element_rect(colour = "black", fill = NA, size = 1.5),
+    strip.background = element_blank(),
+    panel.spacing = unit(0, "lines")
+  )
+print(plot)
+#making present merge STILL NEED TO DO
+# Correcting the merge code
+# Checking column names of both data frames
+library(data.table)
+combine_raw <- fread("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/combine_raw.csv", select = c("V1", "Var1", "Var2", "Freq"))  # Selecting only required columns)
+scls_aoi_attributes <- fread("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/scls_aoi_attributes.csv", select = c("VALUE", "LABEL", "DESCRIPTION"))  # Selecting only required columns)
+print(colnames(combine_raw))
+print(colnames(scls_aoi_attributes))
+# Merge the data frames based on 'Var2' of combine_raw and 'VALUE' of scls_aoi_attributes
+merge2 <- merge(combine_raw, scls_aoi_attributes, by.x = "Var2", by.y = "VALUE", all = TRUE)
+merge2<- merge2[, .(V1, Var1, Var2, Freq, LABEL, DESCRIPTION)]
+# View the result
+print(head(merge2))
+bps_aoi_attributes <- fread("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/bps_aoi_attributes.csv") 
+print(colnames(bps_aoi_attributes))
+bps_aoi_attributes[, VALUE := as.character(VALUE)]
+merge2[, Var1 := as.character(Var1)]
+final_merge2 <- merge(merge2, bps_aoi_attributes, by.x = "Var1", by.y = "VALUE", all.x = TRUE)
+setnames(final_merge2, "Freq.x", "Freq.C")
+setnames(final_merge2, "Freq.y", "Freq.BA")              
+final_merge2[, c("V1.y") := NULL]  # Remove V1.y
+setnames(final_merge2, "V1.x", "V1")  # Rename V1.x to V1
+# Move V1 to be the first column
+setcolorder(final_merge2, c("V1", setdiff(names(final_merge2), "V1")))
+# View the first few rows of the final data frame to verify changes
+print(head(final_merge2))
+final_merge2_processed <- final_merge2 %>%
+  group_by(Var1) %>%  # Group data by Var1
+  mutate(total_sum = sum(Freq.C),  # Calculate the total sum of Freq.C for each group
+         percent = 100 * Freq.C / total_sum) %>%  # Calculate the percentage of each Freq.C in its group
+  ungroup()  # Ungroup data frame after calculation
+# View the first few rows to verify the changes
+print(head(final_merge2_processed))
+library(dplyr)
+# First, rename the columns in both data frames so that they match
+long_datamerg1 <- long_datamerg1 %>%
+  rename(BpS_Name = BpS_Name, # Replace with actual column names if they are different
+         Model_Code = Model_Code,
+         Category = Category)
+final_merge2_processed <- final_merge2_processed %>%
+  rename(BpS_Name = BPS_NAME, # Replace with actual column names if they are different
+         Model_Code = BPS_MODEL,
+         Category = LABEL)
+# Now that the column names match, bind the rows together
+long_data_combined <- bind_rows(
+  long_datamerg1 %>% mutate(TimePeriod = "Past"),
+  final_merge2_processed %>% mutate(TimePeriod = "Present")
+)
+# Check if there are any NA values that need to be addressed
+summary(long_data_combined)
+library(dplyr)
+# make sure that the columns are correctly named and structured
+long_datamerg1 <- long_datamerg1 %>%
+  rename(Percent = PastPercent)
+final_merge2_processed <- final_merge2_processed %>%
+  rename(Percent = percent)
+# bind the rows together
+long_data_combined <- bind_rows(
+  long_datamerg1 %>% mutate(TimePeriod = "Past"),
+  final_merge2_processed %>% mutate(TimePeriod = "Present")
+)
+long_data_combined <- long_data_combined %>%
+  mutate(Percent = coalesce(Percent, 0))  # This replaces NA with 0, if that's the desired behavior
+# Verify the structure and contents of the combined data
+print(head(long_data_combined))
+summary(long_data_combined)
+# Check the column names for both data frames
+names(long_datamerg1)
+names(final_merge2_processed)
+##MAKING THE COMBINED GRAPH
+library(ggplot2)
+library(dplyr)
+library(forcats)
+library(readr)  
+###########################################################################################################################
+long_data_combined <- long_data_combined %>%
+  filter(Category != "Water")
+# Define the order of categories from bottom to top as they should appear after coord_flip()
+ordered_categories <- c("Developed", "Agriculture", "UE", "UN", "E", "D", "C", "B", "A")
+# Set the factor levels for Category
+long_data_combined$Category <- factor(long_data_combined$Category, levels = ordered_categories)
+# Define the three BpS names you want to keep
+selected_bps_names <- c("Ozark-Ouachita Dry-Mesic Oak Forest", 
+                        "Ozark-Ouachita Shortleaf Pine-Bluestem Woodland",
+                        "Ozark-Ouachita Shortleaf Pine-Oak Forest and Woodland")
+# Filter the combined dataset for only the selected BpS names
+long_data_selected <- long_data_combined %>%
+  filter(BpS_Name %in% selected_bps_names)
+# Set the factor levels for BpS_Name and Category to control the plot order
+long_data_selected$BpS_Name <- factor(long_data_selected$BpS_Name, levels = selected_bps_names)
+long_data_selected$Category <- factor(long_data_selected$Category, levels = ordered_categories)
+# Create the plot
+plot <- ggplot(long_data_selected, aes(x = Category, y = Percent, fill = TimePeriod)) +
+  geom_bar(stat = "identity", position = position_dodge(width = 0.9)) +
+  coord_flip() + 
+  facet_wrap(~ BpS_Name, scales = "free_x", strip.position = "top") +
+  scale_fill_manual(values = c("Past" = "darkgrey", "Present" = "darkgreen")) +
+  theme_minimal() +
+  theme(
+    legend.position = "right",
+    strip.placement = "outside",
+    strip.text.x = element_text(size = 8, hjust = 0.5),  
+    axis.text.y = element_text(hjust = 1),
+    axis.title.y = element_blank(),
+    axis.title.x = element_blank(),
+    axis.ticks.y = element_blank(),
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5),
+    plot.caption = element_text(hjust = 0.5),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor.y = element_blank(),
+    panel.border = element_rect(color = "black", fill = NA),
+    strip.background = element_blank(),
+    panel.spacing = unit(0.5, "lines")
+  ) +
+  labs(
+    title = "Succession Classes Past and Present",
+    x = "Percent",
+    y = "",
+    caption = "Data from landfire.gov",
+    fill = "Time Period"
+  ) +
+  guides(fill = guide_legend(title.position = "top", title.hjust = 0.5))
+# Print the plot
+print(plot)
+```
+
+```{r}
+```
+
+## My reflextion
+
+During this process of going through this challenge, IT WAS SO HARD!! I felt like i was going into it a little blind and couldn't remember what any type of code would lead to the results that I needed. I tried my best to read through the R reproducible chapters that we went over in class but this was also challenging because it was over simplified. I also have never read in data before, from a csv file. So in order to do that, which I considered the first step, I looked up the proper coding. Though many people thought this was easy, I had some trouble just because the path wouldn't past correctly. Eventually I figured this out and moved on to data wrangling. THIS WAS THE HARDEST STEP. I didn't know what the information from the excel files were so I didn't know where to start. However, after you went over the hints, I started to understand how to develop the past data. So I started to clean up the data and merge the proper excel files. I started to come into problems with figuring out how to pivot the data as well which after some time it started coming together and no errors. Eventually, before I figured out the data wrangling, I wanted to make the plot. With this in mind I figured I would just make the plot then plug in the coding that related to the data after. So that is what I did, but then I realized I was getting a NA. WHERE WAS THIS COMING FROM? It ended up being the water which I didn't need to plot. I then found out the code that allowed me to filter this out of the data and then it ended up working. Though I was only able to plot the past, I was so excited to even get this far. I will continue to figure out how to plot the present to build more on the graph. HARDEST CHALLENGE EVER!! Update: I DID IT, lots of videos and explanation on what each code means from chatgpt but I finally got it! \## Other Notes: Nearly all the code that I used here was new to me, I was unsure what each one truly meant until I googled it. Now that I know the meaning behind why each character is needed in this coding I can add this into me working on my website.
