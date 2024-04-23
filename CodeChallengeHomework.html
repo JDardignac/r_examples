@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CodeChallengeHomework</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="CodeChallengeHomework_files/libs/clipboard/clipboard.min.js"></script>
+<script src="CodeChallengeHomework_files/libs/quarto-html/quarto.js"></script>
+<script src="CodeChallengeHomework_files/libs/quarto-html/popper.min.js"></script>
+<script src="CodeChallengeHomework_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="CodeChallengeHomework_files/libs/quarto-html/anchor.min.js"></script>
+<link href="CodeChallengeHomework_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="CodeChallengeHomework_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="CodeChallengeHomework_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="CodeChallengeHomework_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="CodeChallengeHomework_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">CodeChallengeHomework</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="homework-challenge" class="level2">
+<h2 class="anchored" data-anchor-id="homework-challenge">Homework challenge</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#setwd("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data")</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#getwd</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'openxlsx' was built under R version 4.3.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.3.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ lubridate 1.9.3     ✔ tibble    3.2.1
+✔ purrr     1.0.2     ✔ tidyr     1.3.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#bps_aoi_attributes &lt;- read_csv("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/bps_aoi_attributes.csv") </span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#View(bps_aoi_attributes)</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#bps_model_number_name &lt;- read_csv("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/bps_model_number_name.csv")</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#bps_aoi_attributes[c()]</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#View(bps_model_number_name)</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#combine_raw &lt;- read_csv("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/combine_raw.csv")</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#View(combine_raw)</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">#LF16_BPS_200 &lt;- read_csv("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/LF16_BPS_200.csv")</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">#View(LF16_BPS_200)</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">#ref_con_modified &lt;- read_csv("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/ref_con_modified.csv")</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#View(ref_con_modified)</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">#scls_aoi_attributes &lt;- read_csv("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/scls_aoi_attributes.csv")</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">#View(scls_aoi_attributes)</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">#merge: this will show the past</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co">#setwd("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data")</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co">#getwd</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>bps_aoi_attributes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"./data/bps_aoi_attributes.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+Rows: 21 Columns: 24
+── Column specification
+──────────────────────────────────────────────────────── Delimiter: "," chr
+(4): BPS_MODEL, BPS_NAME, GROUPVEG, FRG_NEW dbl (20): ...1, VALUE, Freq,
+BPS_CODE, ZONE, FRI_REPLAC, FRI_MIXED, FRI_SURF...
+ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
+Specify the column types or set `show_col_types = FALSE` to quiet this message.
+• `` -&gt; `...1`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>bps_model_number_name <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"./data/bps_model_number_name.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 819 Columns: 2
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (2): BpS_Name, Model_Code
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>combine_raw <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"./data/combine_raw.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+Rows: 146 Columns: 4
+── Column specification
+──────────────────────────────────────────────────────── Delimiter: "," dbl
+(4): ...1, Var1, Var2, Freq
+ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
+Specify the column types or set `show_col_types = FALSE` to quiet this message.
+• `` -&gt; `...1`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>LF16_BPS_200 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"./data/LF16_BPS_200.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 1770 Columns: 20
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (4): BPS_MODEL, BPS_NAME, GROUPVEG, FRG_NEW
+dbl (16): VALUE, BPS_CODE, ZONE, FRI_REPLAC, FRI_MIXED, FRI_SURFAC, FRI_ALLF...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>ref_con_modified <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"./data/ref_con_modified.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 819 Columns: 11
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (1): Model_Code
+dbl (10): A, B, C, D, E, Agriculture, Developed, Water, UN, UE
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>scls_aoi_attributes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"./data/scls_aoi_attributes.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+Rows: 11 Columns: 13
+── Column specification
+──────────────────────────────────────────────────────── Delimiter: "," chr
+(2): LABEL, DESCRIPTION dbl (11): ...1, VALUE, Freq, R, G, B, RED, GREEN, BLUE,
+ACRES, REL_PERCENT
+ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
+Specify the column types or set `show_col_types = FALSE` to quiet this message.
+• `` -&gt; `...1`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>merge1 <span class="ot">&lt;-</span> <span class="fu">merge</span>(ref_con_modified, bps_model_number_name, <span class="at">by =</span> <span class="st">"Model_Code"</span>, <span class="at">all =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#what do i have to filter? </span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>merge1keep <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"13040_32_43_44_49"</span>, <span class="st">"13670_32_44"</span>,<span class="st">"15070_44"</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">#now lets start filtering</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>merg1filtered <span class="ot">&lt;-</span> merge1 <span class="sc">%&gt;%</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Model_Code <span class="sc">%in%</span> merge1keep) <span class="sc">%&gt;%</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>Water)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert from wide to long format</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>long_datamerg1 <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  merg1filtered,</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">cols =</span> A<span class="sc">:</span>UE,</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_to =</span> <span class="st">"Category"</span>,</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">values_to =</span> <span class="st">"PastPercent"</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="do">## Making the Graph</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the order of categories from bottom to top as they should appear after coord_flip()</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>ordered_categories <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Developed"</span>,<span class="st">"Agriculture"</span>, <span class="st">"UE"</span>, <span class="st">"UN"</span>, <span class="st">"E"</span>, <span class="st">"D"</span>, <span class="st">"C"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>)</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the factor levels for Category</span></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>long_datamerg1<span class="sc">$</span>Category <span class="ot">&lt;-</span> <span class="fu">factor</span>(long_datamerg1<span class="sc">$</span>Category, <span class="at">levels =</span> ordered_categories)</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Now create the plot</span></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(long_datamerg1, <span class="fu">aes</span>(<span class="at">x =</span> Category, <span class="at">y =</span> PastPercent, <span class="at">fill =</span> BpS_Name)) <span class="sc">+</span></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(), <span class="at">fill =</span> <span class="st">"green"</span>) <span class="sc">+</span></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span>  <span class="co"># Flip the coordinates to have the categories on the y-axis</span></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> BpS_Name, <span class="at">scales =</span> <span class="st">"free_x"</span>) <span class="sc">+</span></span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Succession Classes past"</span>,</span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Category"</span>,</span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Past Percent"</span></span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">size =</span> <span class="fl">1.5</span>),</span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.spacing =</span> <span class="fu">unit</span>(<span class="dv">0</span>, <span class="st">"lines"</span>)</span>
+<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: The `size` argument of `element_rect()` is deprecated as of ggplot2 3.4.0.
+ℹ Please use the `linewidth` argument instead.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="CodeChallengeHomework_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#making present merge STILL NEED TO DO</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Correcting the merge code</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking column names of both data frames</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'data.table'
+
+The following objects are masked from 'package:lubridate':
+
+    hour, isoweek, mday, minute, month, quarter, second, wday, week,
+    yday, year
+
+The following objects are masked from 'package:dplyr':
+
+    between, first, last
+
+The following object is masked from 'package:purrr':
+
+    transpose</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>combine_raw <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"./data/combine_raw.csv"</span>, <span class="at">select =</span> <span class="fu">c</span>(<span class="st">"V1"</span>, <span class="st">"Var1"</span>, <span class="st">"Var2"</span>, <span class="st">"Freq"</span>))  <span class="co"># Selecting only required columns)</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>scls_aoi_attributes <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"./data/scls_aoi_attributes.csv"</span>, <span class="at">select =</span> <span class="fu">c</span>(<span class="st">"VALUE"</span>, <span class="st">"LABEL"</span>, <span class="st">"DESCRIPTION"</span>))  <span class="co"># Selecting only required columns)</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">colnames</span>(combine_raw))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "V1"   "Var1" "Var2" "Freq"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">colnames</span>(scls_aoi_attributes))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "VALUE"       "LABEL"       "DESCRIPTION"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge the data frames based on 'Var2' of combine_raw and 'VALUE' of scls_aoi_attributes</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>merge2 <span class="ot">&lt;-</span> <span class="fu">merge</span>(combine_raw, scls_aoi_attributes, <span class="at">by.x =</span> <span class="st">"Var2"</span>, <span class="at">by.y =</span> <span class="st">"VALUE"</span>, <span class="at">all =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>merge2<span class="ot">&lt;-</span> merge2[, .(V1, Var1, Var2, Freq, LABEL, DESCRIPTION)]</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View the result</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">head</span>(merge2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Key: &lt;Var2&gt;
+      V1  Var1  Var2  Freq  LABEL        DESCRIPTION
+   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;char&gt;             &lt;char&gt;
+1:     3  2132     1 15903      A Succession Class A
+2:     4  2136     1    96      A Succession Class A
+3:     5  2138     1    98      A Succession Class A
+4:     6  2139     1  3545      A Succession Class A
+5:     7  2140     1  7406      A Succession Class A
+6:     8  2141     1  8560      A Succession Class A</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>bps_aoi_attributes <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"./data/bps_aoi_attributes.csv"</span>) </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">colnames</span>(bps_aoi_attributes))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "V1"          "VALUE"       "Freq"        "BPS_CODE"    "ZONE"       
+ [6] "BPS_MODEL"   "BPS_NAME"    "GROUPVEG"    "FRI_REPLAC"  "FRI_MIXED"  
+[11] "FRI_SURFAC"  "FRI_ALLFIR"  "PRC_REPLAC"  "PRC_MIXED"   "PRC_SURFAC" 
+[16] "FRG_NEW"     "R"           "G"           "B"           "RED"        
+[21] "GREEN"       "BLUE"        "ACRES"       "REL_PERCENT"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>bps_aoi_attributes[, VALUE <span class="sc">:</span><span class="er">=</span> <span class="fu">as.character</span>(VALUE)]</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>merge2[, Var1 <span class="sc">:</span><span class="er">=</span> <span class="fu">as.character</span>(Var1)]</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>final_merge2 <span class="ot">&lt;-</span> <span class="fu">merge</span>(merge2, bps_aoi_attributes, <span class="at">by.x =</span> <span class="st">"Var1"</span>, <span class="at">by.y =</span> <span class="st">"VALUE"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="fu">setnames</span>(final_merge2, <span class="st">"Freq.x"</span>, <span class="st">"Freq.C"</span>)</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="fu">setnames</span>(final_merge2, <span class="st">"Freq.y"</span>, <span class="st">"Freq.BA"</span>)              </span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>final_merge2[, <span class="fu">c</span>(<span class="st">"V1.y"</span>) <span class="sc">:</span><span class="er">=</span> <span class="cn">NULL</span>]  <span class="co"># Remove V1.y</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="fu">setnames</span>(final_merge2, <span class="st">"V1.x"</span>, <span class="st">"V1"</span>)  <span class="co"># Rename V1.x to V1</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Move V1 to be the first column</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="fu">setcolorder</span>(final_merge2, <span class="fu">c</span>(<span class="st">"V1"</span>, <span class="fu">setdiff</span>(<span class="fu">names</span>(final_merge2), <span class="st">"V1"</span>)))</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="co"># View the first few rows of the final data frame to verify changes</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">head</span>(final_merge2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Key: &lt;Var1&gt;
+      V1   Var1  Var2  Freq.C  LABEL        DESCRIPTION Freq.BA BPS_CODE  ZONE
+   &lt;int&gt; &lt;char&gt; &lt;int&gt;   &lt;int&gt; &lt;char&gt;             &lt;char&gt;   &lt;int&gt;    &lt;int&gt; &lt;int&gt;
+1:   148     11   111  286406  Water              Water  286406       11    NA
+2:     3   2132     1   15903      A Succession Class A 2996479    13040    44
+3:    24   2132     2     205      B Succession Class B 2996479    13040    44
+4:    45   2132     3   21820      C Succession Class C 2996479    13040    44
+5:    66   2132     4  647588      D Succession Class D 2996479    13040    44
+6:    87   2132     5 1854930      E Succession Class E 2996479    13040    44
+           BPS_MODEL                            BPS_NAME   GROUPVEG FRI_REPLAC
+              &lt;char&gt;                              &lt;char&gt;     &lt;char&gt;      &lt;int&gt;
+1:              &lt;NA&gt;                          Open Water Open Water         NA
+2: 13040_32_43_44_49 Ozark-Ouachita Dry-Mesic Oak Forest   Hardwood        188
+3: 13040_32_43_44_49 Ozark-Ouachita Dry-Mesic Oak Forest   Hardwood        188
+4: 13040_32_43_44_49 Ozark-Ouachita Dry-Mesic Oak Forest   Hardwood        188
+5: 13040_32_43_44_49 Ozark-Ouachita Dry-Mesic Oak Forest   Hardwood        188
+6: 13040_32_43_44_49 Ozark-Ouachita Dry-Mesic Oak Forest   Hardwood        188
+   FRI_MIXED FRI_SURFAC FRI_ALLFIR PRC_REPLAC PRC_MIXED PRC_SURFAC FRG_NEW
+       &lt;int&gt;      &lt;int&gt;      &lt;int&gt;      &lt;int&gt;     &lt;int&gt;      &lt;int&gt;  &lt;char&gt;
+1:        NA         NA         NA         NA        NA         NA    &lt;NA&gt;
+2:        66         15         11          6        17         77     I-B
+3:        66         15         11          6        17         77     I-B
+4:        66         15         11          6        17         77     I-B
+5:        66         15         11          6        17         77     I-B
+6:        66         15         11          6        17         77     I-B
+       R     G     B       RED     GREEN  BLUE  ACRES REL_PERCENT
+   &lt;int&gt; &lt;int&gt; &lt;int&gt;     &lt;num&gt;     &lt;num&gt; &lt;num&gt;  &lt;int&gt;       &lt;num&gt;
+1:     0     0   255 0.0000000 0.0000000     1  63695         2.3
+2:   115   115     0 0.4509804 0.4509804     0 666401        24.4
+3:   115   115     0 0.4509804 0.4509804     0 666401        24.4
+4:   115   115     0 0.4509804 0.4509804     0 666401        24.4
+5:   115   115     0 0.4509804 0.4509804     0 666401        24.4
+6:   115   115     0 0.4509804 0.4509804     0 666401        24.4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>final_merge2_processed <span class="ot">&lt;-</span> final_merge2 <span class="sc">%&gt;%</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Var1) <span class="sc">%&gt;%</span>  <span class="co"># Group data by Var1</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">total_sum =</span> <span class="fu">sum</span>(Freq.C),  <span class="co"># Calculate the total sum of Freq.C for each group</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">percent =</span> <span class="dv">100</span> <span class="sc">*</span> Freq.C <span class="sc">/</span> total_sum) <span class="sc">%&gt;%</span>  <span class="co"># Calculate the percentage of each Freq.C in its group</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()  <span class="co"># Ungroup data frame after calculation</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="co"># View the first few rows to verify the changes</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">head</span>(final_merge2_processed))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 30
+     V1 Var1   Var2  Freq.C LABEL DESCRIPTION   Freq.BA BPS_CODE  ZONE BPS_MODEL
+  &lt;int&gt; &lt;chr&gt; &lt;int&gt;   &lt;int&gt; &lt;chr&gt; &lt;chr&gt;           &lt;int&gt;    &lt;int&gt; &lt;int&gt; &lt;chr&gt;    
+1   148 11      111  286406 Water Water          286406       11    NA &lt;NA&gt;     
+2     3 2132      1   15903 A     Succession C… 2996479    13040    44 13040_32…
+3    24 2132      2     205 B     Succession C… 2996479    13040    44 13040_32…
+4    45 2132      3   21820 C     Succession C… 2996479    13040    44 13040_32…
+5    66 2132      4  647588 D     Succession C… 2996479    13040    44 13040_32…
+6    87 2132      5 1854930 E     Succession C… 2996479    13040    44 13040_32…
+# ℹ 20 more variables: BPS_NAME &lt;chr&gt;, GROUPVEG &lt;chr&gt;, FRI_REPLAC &lt;int&gt;,
+#   FRI_MIXED &lt;int&gt;, FRI_SURFAC &lt;int&gt;, FRI_ALLFIR &lt;int&gt;, PRC_REPLAC &lt;int&gt;,
+#   PRC_MIXED &lt;int&gt;, PRC_SURFAC &lt;int&gt;, FRG_NEW &lt;chr&gt;, R &lt;int&gt;, G &lt;int&gt;,
+#   B &lt;int&gt;, RED &lt;dbl&gt;, GREEN &lt;dbl&gt;, BLUE &lt;dbl&gt;, ACRES &lt;int&gt;,
+#   REL_PERCENT &lt;dbl&gt;, total_sum &lt;int&gt;, percent &lt;dbl&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co"># First, rename the columns in both data frames so that they match</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>long_datamerg1 <span class="ot">&lt;-</span> long_datamerg1 <span class="sc">%&gt;%</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">BpS_Name =</span> BpS_Name, <span class="co"># Replace with actual column names if they are different</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">Model_Code =</span> Model_Code,</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">Category =</span> Category)</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>final_merge2_processed <span class="ot">&lt;-</span> final_merge2_processed <span class="sc">%&gt;%</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">BpS_Name =</span> BPS_NAME, <span class="co"># Replace with actual column names if they are different</span></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">Model_Code =</span> BPS_MODEL,</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">Category =</span> LABEL)</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Now that the column names match, bind the rows together</span></span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>long_data_combined <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>  long_datamerg1 <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">TimePeriod =</span> <span class="st">"Past"</span>),</span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>  final_merge2_processed <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">TimePeriod =</span> <span class="st">"Present"</span>)</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if there are any NA values that need to be addressed</span></span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(long_data_combined)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Model_Code          BpS_Name           Category          PastPercent   
+ Length:173         Length:173         Length:173         Min.   : 0.00  
+ Class :character   Class :character   Class :character   1st Qu.: 0.00  
+ Mode  :character   Mode  :character   Mode  :character   Median : 3.00  
+                                                          Mean   :11.11  
+                                                          3rd Qu.:19.50  
+                                                          Max.   :45.00  
+                                                          NA's   :146    
+  TimePeriod              V1             Var1                Var2       
+ Length:173         Min.   :  3.00   Length:173         Min.   :  1.00  
+ Class :character   1st Qu.: 45.25   Class :character   1st Qu.:  3.00  
+ Mode  :character   Median : 92.50   Mode  :character   Median :  5.00  
+                    Mean   :110.38                      Mean   : 50.37  
+                    3rd Qu.:180.75                      3rd Qu.:120.00  
+                    Max.   :231.00                      Max.   :180.00  
+                    NA's   :27                          NA's   :27      
+     Freq.C          DESCRIPTION           Freq.BA           BPS_CODE    
+ Min.   :      2.0   Length:173         Min.   :    110   Min.   :   11  
+ 1st Qu.:    343.8   Class :character   1st Qu.:  23905   1st Qu.:13640  
+ Median :   4082.5   Mode  :character   Median :  57169   Median :14151  
+ Mean   :  84087.0                      Mean   : 719198   Mean   :13910  
+ 3rd Qu.:  27449.5                      3rd Qu.: 530667   3rd Qu.:14738  
+ Max.   :1854930.0                      Max.   :3130351   Max.   :15070  
+ NA's   :27                             NA's   :27        NA's   :27     
+      ZONE      GROUPVEG           FRI_REPLAC       FRI_MIXED     
+ Min.   :44   Length:173         Min.   :   2.0   Min.   :   7.0  
+ 1st Qu.:44   Class :character   1st Qu.:  96.0   1st Qu.:  66.0  
+ Median :44   Mode  :character   Median : 179.0   Median :  92.0  
+ Mean   :44                      Mean   : 275.8   Mean   : 204.3  
+ 3rd Qu.:44                      3rd Qu.: 323.8   3rd Qu.: 130.0  
+ Max.   :44                      Max.   :1280.0   Max.   :1223.0  
+ NA's   :29                      NA's   :29       NA's   :48      
+   FRI_SURFAC      FRI_ALLFIR       PRC_REPLAC       PRC_MIXED    
+ Min.   :  2.0   Min.   :  2.00   Min.   :  1.00   Min.   : 1.00  
+ 1st Qu.:  5.0   1st Qu.:  4.00   1st Qu.:  3.00   1st Qu.: 5.00  
+ Median :  7.0   Median :  5.00   Median :  6.50   Median : 9.00  
+ Mean   : 52.3   Mean   : 32.15   Mean   : 17.07   Mean   :12.85  
+ 3rd Qu.: 25.0   3rd Qu.: 19.00   3rd Qu.: 13.00   3rd Qu.:18.00  
+ Max.   :685.0   Max.   :410.00   Max.   :100.00   Max.   :52.00  
+ NA's   :36      NA's   :29       NA's   :29       NA's   :48     
+   PRC_SURFAC      FRG_NEW                R               G        
+ Min.   :17.00   Length:173         Min.   :  0.0   Min.   :  0.0  
+ 1st Qu.:70.00   Class :character   1st Qu.: 68.0   1st Qu.:115.0  
+ Median :77.00   Mode  :character   Median :102.0   Median :138.0  
+ Mean   :75.45                      Mean   :129.2   Mean   :138.8  
+ 3rd Qu.:87.00                      3rd Qu.:196.0   3rd Qu.:168.0  
+ Max.   :97.00                      Max.   :255.0   Max.   :237.0  
+ NA's   :36                         NA's   :27      NA's   :27     
+       B               RED             GREEN             BLUE       
+ Min.   :  0.00   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:  0.00   1st Qu.:0.2667   1st Qu.:0.4510   1st Qu.:0.0000  
+ Median :100.00   Median :0.4000   Median :0.5412   Median :0.3922  
+ Mean   : 93.45   Mean   :0.5066   Mean   :0.5445   Mean   :0.3665  
+ 3rd Qu.:170.00   3rd Qu.:0.7686   3rd Qu.:0.6588   3rd Qu.:0.6667  
+ Max.   :255.00   Max.   :1.0000   Max.   :0.9294   Max.   :1.0000  
+ NA's   :27       NA's   :27       NA's   :27       NA's   :27      
+     ACRES         REL_PERCENT       total_sum          percent         
+ Min.   :    24   Min.   : 0.000   Min.   :    110   Min.   :  0.00048  
+ 1st Qu.:  5316   1st Qu.: 0.200   1st Qu.:  23905   1st Qu.:  0.83212  
+ Median : 12714   Median : 0.500   Median :  57169   Median :  6.05461  
+ Mean   :159946   Mean   : 5.855   Mean   : 719198   Mean   : 14.38356  
+ 3rd Qu.:118017   3rd Qu.: 4.300   3rd Qu.: 530667   3rd Qu.: 20.78970  
+ Max.   :696173   Max.   :25.500   Max.   :3130351   Max.   :100.00000  
+ NA's   :27       NA's   :27       NA's   :27        NA's   :27         </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co"># make sure that the columns are correctly named and structured</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>long_datamerg1 <span class="ot">&lt;-</span> long_datamerg1 <span class="sc">%&gt;%</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Percent =</span> PastPercent)</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>final_merge2_processed <span class="ot">&lt;-</span> final_merge2_processed <span class="sc">%&gt;%</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Percent =</span> percent)</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="co"># bind the rows together</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>long_data_combined <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>  long_datamerg1 <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">TimePeriod =</span> <span class="st">"Past"</span>),</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>  final_merge2_processed <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">TimePeriod =</span> <span class="st">"Present"</span>)</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>long_data_combined <span class="ot">&lt;-</span> long_data_combined <span class="sc">%&gt;%</span></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Percent =</span> <span class="fu">coalesce</span>(Percent, <span class="dv">0</span>))  <span class="co"># This replaces NA with 0, if that's the desired behavior</span></span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify the structure and contents of the combined data</span></span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">head</span>(long_data_combined))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 31
+  Model_Code       BpS_Name Category Percent TimePeriod    V1 Var1   Var2 Freq.C
+  &lt;chr&gt;            &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;      &lt;int&gt; &lt;chr&gt; &lt;int&gt;  &lt;int&gt;
+1 13040_32_43_44_… Ozark-O… A              7 Past          NA &lt;NA&gt;     NA     NA
+2 13040_32_43_44_… Ozark-O… B             21 Past          NA &lt;NA&gt;     NA     NA
+3 13040_32_43_44_… Ozark-O… C             22 Past          NA &lt;NA&gt;     NA     NA
+4 13040_32_43_44_… Ozark-O… D             33 Past          NA &lt;NA&gt;     NA     NA
+5 13040_32_43_44_… Ozark-O… E             17 Past          NA &lt;NA&gt;     NA     NA
+6 13040_32_43_44_… Ozark-O… Agricul…       0 Past          NA &lt;NA&gt;     NA     NA
+# ℹ 22 more variables: DESCRIPTION &lt;chr&gt;, Freq.BA &lt;int&gt;, BPS_CODE &lt;int&gt;,
+#   ZONE &lt;int&gt;, GROUPVEG &lt;chr&gt;, FRI_REPLAC &lt;int&gt;, FRI_MIXED &lt;int&gt;,
+#   FRI_SURFAC &lt;int&gt;, FRI_ALLFIR &lt;int&gt;, PRC_REPLAC &lt;int&gt;, PRC_MIXED &lt;int&gt;,
+#   PRC_SURFAC &lt;int&gt;, FRG_NEW &lt;chr&gt;, R &lt;int&gt;, G &lt;int&gt;, B &lt;int&gt;, RED &lt;dbl&gt;,
+#   GREEN &lt;dbl&gt;, BLUE &lt;dbl&gt;, ACRES &lt;int&gt;, REL_PERCENT &lt;dbl&gt;, total_sum &lt;int&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(long_data_combined)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Model_Code          BpS_Name           Category            Percent        
+ Length:173         Length:173         Length:173         Min.   :  0.0000  
+ Class :character   Class :character   Class :character   1st Qu.:  0.5647  
+ Mode  :character   Mode  :character   Mode  :character   Median :  5.9050  
+                                                          Mean   : 13.8728  
+                                                          3rd Qu.: 20.8537  
+                                                          Max.   :100.0000  
+                                                                            
+  TimePeriod              V1             Var1                Var2       
+ Length:173         Min.   :  3.00   Length:173         Min.   :  1.00  
+ Class :character   1st Qu.: 45.25   Class :character   1st Qu.:  3.00  
+ Mode  :character   Median : 92.50   Mode  :character   Median :  5.00  
+                    Mean   :110.38                      Mean   : 50.37  
+                    3rd Qu.:180.75                      3rd Qu.:120.00  
+                    Max.   :231.00                      Max.   :180.00  
+                    NA's   :27                          NA's   :27      
+     Freq.C          DESCRIPTION           Freq.BA           BPS_CODE    
+ Min.   :      2.0   Length:173         Min.   :    110   Min.   :   11  
+ 1st Qu.:    343.8   Class :character   1st Qu.:  23905   1st Qu.:13640  
+ Median :   4082.5   Mode  :character   Median :  57169   Median :14151  
+ Mean   :  84087.0                      Mean   : 719198   Mean   :13910  
+ 3rd Qu.:  27449.5                      3rd Qu.: 530667   3rd Qu.:14738  
+ Max.   :1854930.0                      Max.   :3130351   Max.   :15070  
+ NA's   :27                             NA's   :27        NA's   :27     
+      ZONE      GROUPVEG           FRI_REPLAC       FRI_MIXED     
+ Min.   :44   Length:173         Min.   :   2.0   Min.   :   7.0  
+ 1st Qu.:44   Class :character   1st Qu.:  96.0   1st Qu.:  66.0  
+ Median :44   Mode  :character   Median : 179.0   Median :  92.0  
+ Mean   :44                      Mean   : 275.8   Mean   : 204.3  
+ 3rd Qu.:44                      3rd Qu.: 323.8   3rd Qu.: 130.0  
+ Max.   :44                      Max.   :1280.0   Max.   :1223.0  
+ NA's   :29                      NA's   :29       NA's   :48      
+   FRI_SURFAC      FRI_ALLFIR       PRC_REPLAC       PRC_MIXED    
+ Min.   :  2.0   Min.   :  2.00   Min.   :  1.00   Min.   : 1.00  
+ 1st Qu.:  5.0   1st Qu.:  4.00   1st Qu.:  3.00   1st Qu.: 5.00  
+ Median :  7.0   Median :  5.00   Median :  6.50   Median : 9.00  
+ Mean   : 52.3   Mean   : 32.15   Mean   : 17.07   Mean   :12.85  
+ 3rd Qu.: 25.0   3rd Qu.: 19.00   3rd Qu.: 13.00   3rd Qu.:18.00  
+ Max.   :685.0   Max.   :410.00   Max.   :100.00   Max.   :52.00  
+ NA's   :36      NA's   :29       NA's   :29       NA's   :48     
+   PRC_SURFAC      FRG_NEW                R               G        
+ Min.   :17.00   Length:173         Min.   :  0.0   Min.   :  0.0  
+ 1st Qu.:70.00   Class :character   1st Qu.: 68.0   1st Qu.:115.0  
+ Median :77.00   Mode  :character   Median :102.0   Median :138.0  
+ Mean   :75.45                      Mean   :129.2   Mean   :138.8  
+ 3rd Qu.:87.00                      3rd Qu.:196.0   3rd Qu.:168.0  
+ Max.   :97.00                      Max.   :255.0   Max.   :237.0  
+ NA's   :36                         NA's   :27      NA's   :27     
+       B               RED             GREEN             BLUE       
+ Min.   :  0.00   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:  0.00   1st Qu.:0.2667   1st Qu.:0.4510   1st Qu.:0.0000  
+ Median :100.00   Median :0.4000   Median :0.5412   Median :0.3922  
+ Mean   : 93.45   Mean   :0.5066   Mean   :0.5445   Mean   :0.3665  
+ 3rd Qu.:170.00   3rd Qu.:0.7686   3rd Qu.:0.6588   3rd Qu.:0.6667  
+ Max.   :255.00   Max.   :1.0000   Max.   :0.9294   Max.   :1.0000  
+ NA's   :27       NA's   :27       NA's   :27       NA's   :27      
+     ACRES         REL_PERCENT       total_sum      
+ Min.   :    24   Min.   : 0.000   Min.   :    110  
+ 1st Qu.:  5316   1st Qu.: 0.200   1st Qu.:  23905  
+ Median : 12714   Median : 0.500   Median :  57169  
+ Mean   :159946   Mean   : 5.855   Mean   : 719198  
+ 3rd Qu.:118017   3rd Qu.: 4.300   3rd Qu.: 530667  
+ Max.   :696173   Max.   :25.500   Max.   :3130351  
+ NA's   :27       NA's   :27       NA's   :27       </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the column names for both data frames</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(long_datamerg1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Model_Code" "BpS_Name"   "Category"   "Percent"   </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(final_merge2_processed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "V1"          "Var1"        "Var2"        "Freq.C"      "Category"   
+ [6] "DESCRIPTION" "Freq.BA"     "BPS_CODE"    "ZONE"        "Model_Code" 
+[11] "BpS_Name"    "GROUPVEG"    "FRI_REPLAC"  "FRI_MIXED"   "FRI_SURFAC" 
+[16] "FRI_ALLFIR"  "PRC_REPLAC"  "PRC_MIXED"   "PRC_SURFAC"  "FRG_NEW"    
+[21] "R"           "G"           "B"           "RED"         "GREEN"      
+[26] "BLUE"        "ACRES"       "REL_PERCENT" "total_sum"   "Percent"    </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="do">##MAKING THE COMBINED GRAPH</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)  </span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="do">###########################################################################################################################</span></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>long_data_combined <span class="ot">&lt;-</span> long_data_combined <span class="sc">%&gt;%</span></span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Category <span class="sc">!=</span> <span class="st">"Water"</span>)</span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the order of categories from bottom to top as they should appear after coord_flip()</span></span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>ordered_categories <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Developed"</span>, <span class="st">"Agriculture"</span>, <span class="st">"UE"</span>, <span class="st">"UN"</span>, <span class="st">"E"</span>, <span class="st">"D"</span>, <span class="st">"C"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>)</span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the factor levels for Category</span></span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a>long_data_combined<span class="sc">$</span>Category <span class="ot">&lt;-</span> <span class="fu">factor</span>(long_data_combined<span class="sc">$</span>Category, <span class="at">levels =</span> ordered_categories)</span>
+<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the three BpS names you want to keep</span></span>
+<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a>selected_bps_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Ozark-Ouachita Dry-Mesic Oak Forest"</span>, </span>
+<span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"Ozark-Ouachita Shortleaf Pine-Bluestem Woodland"</span>,</span>
+<span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"Ozark-Ouachita Shortleaf Pine-Oak Forest and Woodland"</span>)</span>
+<span id="cb46-18"><a href="#cb46-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter the combined dataset for only the selected BpS names</span></span>
+<span id="cb46-19"><a href="#cb46-19" aria-hidden="true" tabindex="-1"></a>long_data_selected <span class="ot">&lt;-</span> long_data_combined <span class="sc">%&gt;%</span></span>
+<span id="cb46-20"><a href="#cb46-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(BpS_Name <span class="sc">%in%</span> selected_bps_names)</span>
+<span id="cb46-21"><a href="#cb46-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the factor levels for BpS_Name and Category to control the plot order</span></span>
+<span id="cb46-22"><a href="#cb46-22" aria-hidden="true" tabindex="-1"></a>long_data_selected<span class="sc">$</span>BpS_Name <span class="ot">&lt;-</span> <span class="fu">factor</span>(long_data_selected<span class="sc">$</span>BpS_Name, <span class="at">levels =</span> selected_bps_names)</span>
+<span id="cb46-23"><a href="#cb46-23" aria-hidden="true" tabindex="-1"></a>long_data_selected<span class="sc">$</span>Category <span class="ot">&lt;-</span> <span class="fu">factor</span>(long_data_selected<span class="sc">$</span>Category, <span class="at">levels =</span> ordered_categories)</span>
+<span id="cb46-24"><a href="#cb46-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the plot</span></span>
+<span id="cb46-25"><a href="#cb46-25" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(long_data_selected, <span class="fu">aes</span>(<span class="at">x =</span> Category, <span class="at">y =</span> Percent, <span class="at">fill =</span> TimePeriod)) <span class="sc">+</span></span>
+<span id="cb46-26"><a href="#cb46-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.9</span>)) <span class="sc">+</span></span>
+<span id="cb46-27"><a href="#cb46-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span> </span>
+<span id="cb46-28"><a href="#cb46-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> BpS_Name, <span class="at">scales =</span> <span class="st">"free_x"</span>, <span class="at">strip.position =</span> <span class="st">"top"</span>) <span class="sc">+</span></span>
+<span id="cb46-29"><a href="#cb46-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Past"</span> <span class="ot">=</span> <span class="st">"darkgrey"</span>, <span class="st">"Present"</span> <span class="ot">=</span> <span class="st">"darkgreen"</span>)) <span class="sc">+</span></span>
+<span id="cb46-30"><a href="#cb46-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb46-31"><a href="#cb46-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb46-32"><a href="#cb46-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"right"</span>,</span>
+<span id="cb46-33"><a href="#cb46-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.placement =</span> <span class="st">"outside"</span>,</span>
+<span id="cb46-34"><a href="#cb46-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),  </span>
+<span id="cb46-35"><a href="#cb46-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb46-36"><a href="#cb46-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb46-37"><a href="#cb46-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb46-38"><a href="#cb46-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb46-39"><a href="#cb46-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb46-40"><a href="#cb46-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb46-41"><a href="#cb46-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb46-42"><a href="#cb46-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb46-43"><a href="#cb46-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="cn">NA</span>),</span>
+<span id="cb46-44"><a href="#cb46-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb46-45"><a href="#cb46-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.spacing =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">"lines"</span>)</span>
+<span id="cb46-46"><a href="#cb46-46" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb46-47"><a href="#cb46-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb46-48"><a href="#cb46-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Succession Classes Past and Present"</span>,</span>
+<span id="cb46-49"><a href="#cb46-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Percent"</span>,</span>
+<span id="cb46-50"><a href="#cb46-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">""</span>,</span>
+<span id="cb46-51"><a href="#cb46-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data from landfire.gov"</span>,</span>
+<span id="cb46-52"><a href="#cb46-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Time Period"</span></span>
+<span id="cb46-53"><a href="#cb46-53" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb46-54"><a href="#cb46-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">title.position =</span> <span class="st">"top"</span>, <span class="at">title.hjust =</span> <span class="fl">0.5</span>))</span>
+<span id="cb46-55"><a href="#cb46-55" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the plot</span></span>
+<span id="cb46-56"><a href="#cb46-56" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="CodeChallengeHomework_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><span style="color:red;">#Disclosure: if seeing NA rerun lines 158-206 </span></p>
+</section>
+<section id="my-reflextion" class="level2">
+<h2 class="anchored" data-anchor-id="my-reflextion">My reflextion:</h2>
+<p>During this process of going through this challenge, IT WAS SO HARD!! I felt like i was going into it a little blind and couldn’t remember what any type of code would lead to the results that I needed. I tried my best to read through the R reproducible chapters that we went over in class but this was also challenging because it was over simplified. I also have never read in data before, from a csv file. So in order to do that, which I considered the first step, I looked up the proper coding. Though many people thought this was easy, I had some trouble just because the path wouldn’t past correctly. Eventually I figured this out and moved on to data wrangling. THIS WAS THE HARDEST STEP. I didn’t know what the information from the excel files were so I didn’t know where to start. However, after you went over the hints, I started to understand how to develop the past data. So I started to clean up the data and merge the proper excel files. I started to come into problems with figuring out how to pivot the data as well which after some time it started coming together and no errors. Eventually, before I figured out the data wrangling, I wanted to make the plot. With this in mind I figured I would just make the plot then plug in the coding that related to the data after. So that is what I did, but then I realized I was getting a NA. WHERE WAS THIS COMING FROM? It ended up being the water which I didn’t need to plot. I then found out the code that allowed me to filter this out of the data and then it ended up working. Though I was only able to plot the past, I was so excited to even get this far. I will continue to figure out how to plot the present to build more on the graph. HARDEST CHALLENGE EVER!! Update: I DID IT, lots of videos and explanation on what each code means from chatgpt but I finally got it!</p>
+</section>
+<section id="other-notes" class="level1">
+<h1>Other Notes:</h1>
+<p>Nearly all the code that I used here was new to me, I was unsure what each one truly meant until I googled it. Now that I know the meaning behind why each character is needed in this coding I can add this into me working on my website.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

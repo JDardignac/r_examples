@@ -7,27 +7,39 @@ editor: visual
 ## Homework challenge
 
 ```{r}
-setwd("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data")
-getwd
+#setwd("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data")
+#getwd
 library(openxlsx)
 library(readxl)
 library(ggplot2)
 library(tidyverse)
 library(dplyr)
-bps_aoi_attributes <- read_csv("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/bps_aoi_attributes.csv") 
+#bps_aoi_attributes <- read_csv("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/bps_aoi_attributes.csv") 
 #View(bps_aoi_attributes)
-bps_model_number_name <- read_csv("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/bps_model_number_name.csv")
+#bps_model_number_name <- read_csv("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/bps_model_number_name.csv")
 #bps_aoi_attributes[c()]
 #View(bps_model_number_name)
-combine_raw <- read_csv("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/combine_raw.csv")
+#combine_raw <- read_csv("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/combine_raw.csv")
 #View(combine_raw)
-LF16_BPS_200 <- read_csv("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/LF16_BPS_200.csv")
+#LF16_BPS_200 <- read_csv("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/LF16_BPS_200.csv")
 #View(LF16_BPS_200)
-ref_con_modified <- read_csv("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/ref_con_modified.csv")
+#ref_con_modified <- read_csv("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/ref_con_modified.csv")
 #View(ref_con_modified)
-scls_aoi_attributes <- read_csv("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/scls_aoi_attributes.csv")
+#scls_aoi_attributes <- read_csv("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/scls_aoi_attributes.csv")
 #View(scls_aoi_attributes)
 #merge: this will show the past
+
+#setwd("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data")
+#getwd
+
+bps_aoi_attributes <- read_csv("./data/bps_aoi_attributes.csv")
+bps_model_number_name <- read_csv("./data/bps_model_number_name.csv")
+combine_raw <- read_csv("./data/combine_raw.csv")
+LF16_BPS_200 <- read_csv("./data/LF16_BPS_200.csv")
+ref_con_modified <- read_csv("./data/ref_con_modified.csv")
+scls_aoi_attributes <- read_csv("./data/scls_aoi_attributes.csv")
+
+
 merge1 <- merge(ref_con_modified, bps_model_number_name, by = "Model_Code", all = TRUE)
 #what do i have to filter? 
 merge1keep <- c("13040_32_43_44_49", "13670_32_44","15070_44")
@@ -70,8 +82,8 @@ print(plot)
 # Correcting the merge code
 # Checking column names of both data frames
 library(data.table)
-combine_raw <- fread("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/combine_raw.csv", select = c("V1", "Var1", "Var2", "Freq"))  # Selecting only required columns)
-scls_aoi_attributes <- fread("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/scls_aoi_attributes.csv", select = c("VALUE", "LABEL", "DESCRIPTION"))  # Selecting only required columns)
+combine_raw <- fread("./data/combine_raw.csv", select = c("V1", "Var1", "Var2", "Freq"))  # Selecting only required columns)
+scls_aoi_attributes <- fread("./data/scls_aoi_attributes.csv", select = c("VALUE", "LABEL", "DESCRIPTION"))  # Selecting only required columns)
 print(colnames(combine_raw))
 print(colnames(scls_aoi_attributes))
 # Merge the data frames based on 'Var2' of combine_raw and 'VALUE' of scls_aoi_attributes
@@ -79,8 +91,9 @@ merge2 <- merge(combine_raw, scls_aoi_attributes, by.x = "Var2", by.y = "VALUE",
 merge2<- merge2[, .(V1, Var1, Var2, Freq, LABEL, DESCRIPTION)]
 # View the result
 print(head(merge2))
-bps_aoi_attributes <- fread("C:/Users/Jmons/OneDrive/Documents/R-Class work/code_challenge/input_data/bps_aoi_attributes.csv") 
+bps_aoi_attributes <- fread("./data/bps_aoi_attributes.csv") 
 print(colnames(bps_aoi_attributes))
+
 bps_aoi_attributes[, VALUE := as.character(VALUE)]
 merge2[, Var1 := as.character(Var1)]
 final_merge2 <- merge(merge2, bps_aoi_attributes, by.x = "Var1", by.y = "VALUE", all.x = TRUE)
@@ -141,6 +154,7 @@ library(dplyr)
 library(forcats)
 library(readr)  
 ###########################################################################################################################
+
 long_data_combined <- long_data_combined %>%
   filter(Category != "Water")
 # Define the order of categories from bottom to top as they should appear after coord_flip()
@@ -192,9 +206,12 @@ plot <- ggplot(long_data_selected, aes(x = Category, y = Percent, fill = TimePer
 print(plot)
 ```
 
-```{r}
-```
+##Disclosure: if seeing NA rerun lines 158-206, this should get rid of it 
 
-## My reflextion
+## My reflextion:
 
-During this process of going through this challenge, IT WAS SO HARD!! I felt like i was going into it a little blind and couldn't remember what any type of code would lead to the results that I needed. I tried my best to read through the R reproducible chapters that we went over in class but this was also challenging because it was over simplified. I also have never read in data before, from a csv file. So in order to do that, which I considered the first step, I looked up the proper coding. Though many people thought this was easy, I had some trouble just because the path wouldn't past correctly. Eventually I figured this out and moved on to data wrangling. THIS WAS THE HARDEST STEP. I didn't know what the information from the excel files were so I didn't know where to start. However, after you went over the hints, I started to understand how to develop the past data. So I started to clean up the data and merge the proper excel files. I started to come into problems with figuring out how to pivot the data as well which after some time it started coming together and no errors. Eventually, before I figured out the data wrangling, I wanted to make the plot. With this in mind I figured I would just make the plot then plug in the coding that related to the data after. So that is what I did, but then I realized I was getting a NA. WHERE WAS THIS COMING FROM? It ended up being the water which I didn't need to plot. I then found out the code that allowed me to filter this out of the data and then it ended up working. Though I was only able to plot the past, I was so excited to even get this far. I will continue to figure out how to plot the present to build more on the graph. HARDEST CHALLENGE EVER!! Update: I DID IT, lots of videos and explanation on what each code means from chatgpt but I finally got it! \## Other Notes: Nearly all the code that I used here was new to me, I was unsure what each one truly meant until I googled it. Now that I know the meaning behind why each character is needed in this coding I can add this into me working on my website.
+During this process of going through this challenge, IT WAS SO HARD!! I felt like i was going into it a little blind and couldn't remember what any type of code would lead to the results that I needed. I tried my best to read through the R reproducible chapters that we went over in class but this was also challenging because it was over simplified. I also have never read in data before, from a csv file. So in order to do that, which I considered the first step, I looked up the proper coding. Though many people thought this was easy, I had some trouble just because the path wouldn't past correctly. Eventually I figured this out and moved on to data wrangling. THIS WAS THE HARDEST STEP. I didn't know what the information from the excel files were so I didn't know where to start. However, after you went over the hints, I started to understand how to develop the past data. So I started to clean up the data and merge the proper excel files. I started to come into problems with figuring out how to pivot the data as well which after some time it started coming together and no errors. Eventually, before I figured out the data wrangling, I wanted to make the plot. With this in mind I figured I would just make the plot then plug in the coding that related to the data after. So that is what I did, but then I realized I was getting a NA. WHERE WAS THIS COMING FROM? It ended up being the water which I didn't need to plot. I then found out the code that allowed me to filter this out of the data and then it ended up working. Though I was only able to plot the past, I was so excited to even get this far. I will continue to figure out how to plot the present to build more on the graph. HARDEST CHALLENGE EVER!! Update: I DID IT, lots of videos and explanation on what each code means from chatgpt but I finally got it! 
+
+# Other Notes: 
+
+Nearly all the code that I used here was new to me, I was unsure what each one truly meant until I googled it. Now that I know the meaning behind why each character is needed in this coding I can add this into me working on my website.
