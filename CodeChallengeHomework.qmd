@@ -4,6 +4,16 @@ format: html
 editor: visual
 ---
 
+## Randy's comments
+
+* this totally made me smile.  This is not about me, but still :)
+* your comments have always been great-keep that up!
+* I thought there might be some pink somewhere :)
+* Great catch on the NAs
+* It's very very typical for first attempts to be verbose (long).  I wouldn't bother shortening this up, but in the future aim to use fewer lines to get the desired results.
+* Great work Jessica!
+
+
 ## Homework challenge
 
 ```{r}
@@ -206,12 +216,12 @@ plot <- ggplot(long_data_selected, aes(x = Category, y = Percent, fill = TimePer
 print(plot)
 ```
 
-##Disclosure: if seeing NA rerun lines 158-206, this should get rid of it 
+##Disclosure: if seeing NA rerun lines 158-206, this should get rid of it
 
 ## My reflextion:
 
-During this process of going through this challenge, IT WAS SO HARD!! I felt like i was going into it a little blind and couldn't remember what any type of code would lead to the results that I needed. I tried my best to read through the R reproducible chapters that we went over in class but this was also challenging because it was over simplified. I also have never read in data before, from a csv file. So in order to do that, which I considered the first step, I looked up the proper coding. Though many people thought this was easy, I had some trouble just because the path wouldn't past correctly. Eventually I figured this out and moved on to data wrangling. THIS WAS THE HARDEST STEP. I didn't know what the information from the excel files were so I didn't know where to start. However, after you went over the hints, I started to understand how to develop the past data. So I started to clean up the data and merge the proper excel files. I started to come into problems with figuring out how to pivot the data as well which after some time it started coming together and no errors. Eventually, before I figured out the data wrangling, I wanted to make the plot. With this in mind I figured I would just make the plot then plug in the coding that related to the data after. So that is what I did, but then I realized I was getting a NA. WHERE WAS THIS COMING FROM? It ended up being the water which I didn't need to plot. I then found out the code that allowed me to filter this out of the data and then it ended up working. Though I was only able to plot the past, I was so excited to even get this far. I will continue to figure out how to plot the present to build more on the graph. HARDEST CHALLENGE EVER!! Update: I DID IT, lots of videos and explanation on what each code means from chatgpt but I finally got it! 
+During this process of going through this challenge, IT WAS SO HARD!! I felt like i was going into it a little blind and couldn't remember what any type of code would lead to the results that I needed. I tried my best to read through the R reproducible chapters that we went over in class but this was also challenging because it was over simplified. I also have never read in data before, from a csv file. So in order to do that, which I considered the first step, I looked up the proper coding. Though many people thought this was easy, I had some trouble just because the path wouldn't past correctly. Eventually I figured this out and moved on to data wrangling. THIS WAS THE HARDEST STEP. I didn't know what the information from the excel files were so I didn't know where to start. However, after you went over the hints, I started to understand how to develop the past data. So I started to clean up the data and merge the proper excel files. I started to come into problems with figuring out how to pivot the data as well which after some time it started coming together and no errors. Eventually, before I figured out the data wrangling, I wanted to make the plot. With this in mind I figured I would just make the plot then plug in the coding that related to the data after. So that is what I did, but then I realized I was getting a NA. WHERE WAS THIS COMING FROM? It ended up being the water which I didn't need to plot. I then found out the code that allowed me to filter this out of the data and then it ended up working. Though I was only able to plot the past, I was so excited to even get this far. I will continue to figure out how to plot the present to build more on the graph. HARDEST CHALLENGE EVER!! Update: I DID IT, lots of videos and explanation on what each code means from chatgpt but I finally got it!
 
-# Other Notes: 
+# Other Notes:
 
 Nearly all the code that I used here was new to me, I was unsure what each one truly meant until I googled it. Now that I know the meaning behind why each character is needed in this coding I can add this into me working on my website.
